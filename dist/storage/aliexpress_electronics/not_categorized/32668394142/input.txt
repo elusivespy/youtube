@@ -1,0 +1,13 @@
+file 'E:\parser\dist\storage\aliexpress_electronics\not_categorized\32668394142\000.jpg'
+duration 10
+file 'E:\parser\dist\storage\aliexpress_electronics\not_categorized\32668394142\001.jpg'
+duration 10
+file 'E:\parser\dist\storage\aliexpress_electronics\not_categorized\32668394142\002.jpg'
+duration 10
+file 'E:\parser\dist\storage\aliexpress_electronics\not_categorized\32668394142\003.jpg'
+duration 10
+file 'E:\parser\dist\storage\aliexpress_electronics\not_categorized\32668394142\004.jpg'
+duration 10
+file 'E:\parser\dist\storage\aliexpress_electronics\not_categorized\32668394142\005.jpg'
+duration 10
+file 'E:\parser\dist\storage\aliexpress_electronics\not_categorized\32668394142\005.jpg'
