@@ -1,0 +1,1 @@
+cmd /k cd "C:\aliLoader\youtube"
