@@ -1,8 +1,10 @@
 # Logs
 logs
 *.log
-dist/storage/**/*.jpg
-dist/storage/**/*.jpeg
+dist/storage
+dist/bundle.js
+dist/preloaded_DEBUG.txt
+dist/temp.bmp
 *.avi
 *.mp4
 
@@ -103,6 +105,7 @@ out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
+.idea/workspace.xml
 
 # JIRA plugin
 atlassian-ide-plugin.xml
