@@ -1,8 +1,8 @@
 # Logs
 logs
 *.log
-*.jpg
-*.jpeg
+dist/storage/**/*.jpg
+dist/storage/**/*.jpeg
 *.avi
 *.mp4
 

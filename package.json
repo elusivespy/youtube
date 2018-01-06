@@ -4,10 +4,11 @@
   "description": "",
   "main": "src/main.ts",
   "scripts": {
-	"start": "gulp && cmd /c cscript dist/bundle.js",
-    "parser": "gulp && cmd /c cscript dist/bundle.js parser",
-	"build": "gulp",
-	"watch": "gulp watch",
+    "start": "cmd /c \"del dist\\bundle.js\" && gulp && cmd /c cscript dist/bundle.js",
+    "regger": "cmd /c \"del dist\\bundle.js\" && gulp && cmd /c \"cscript dist/bundle.js regger\"",
+    "parser": "gulp && cmd /c \"cscript dist/bundle.js parser\"",
+    "build": "gulp",
+    "watch": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

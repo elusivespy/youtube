@@ -1,4 +1,5 @@
 import './common/polyfills';
+import initRegger from './regger/browserRegger';
 import { log, me, delay, shuffle, mixWords } from './common/utils';
 import { fso, shell } from './common/activex';
 import { getShortLink } from './common/shortlink';
@@ -15,6 +16,7 @@ import { session, cache } from './common/session';
 import { hasUploadedProductId, addUploadedProductId } from './aliexpress/uploadedIds';
 import { isUsedWords, processTitle } from './common/text';
 import { init as initAdult } from './scenarios/adult';
+import getBrowser from './regger/utils';
 
 const gearProductId = url => url.split('http://www.gearbest.com/')[1].split('.')[0].replace('/', '__');
 const aliProductId = url => parseFloat(url.split('.html')[0].split('/').reverse()[0]);
@@ -24,7 +26,7 @@ const aliLink = url => `http://alipromo.com/redirect/product/30e12e5c9935a27494e
 
 let currentIndex = 0;
 const UPLOADING_DELAY = 8 * 60000;
-const ENABLE_PROXY = true;
+const ENABLE_PROXY = false;
 
 
 const ROOT_CATALOG = 'aliexpress_electronics';
@@ -34,6 +36,12 @@ const LINK_ALGORITHM = aliLink;
 const ENABLE_CACHE = true;
 const PARSER_SOURCE = ELECTRONICS_NEW;
 const PARSER_MODE = false;
+
+if (WScript.Arguments.length && WScript.Arguments.Item(0) === 'regger') {
+    while(true) {
+        initRegger(getBrowser().mode);
+    }
+}
 
 /*
 
@@ -226,17 +234,18 @@ flattenFoldersList.forEach(currentProductFolder => {
  */
         addUploadedProductId(productId);
 
-        if (data.notParsed) {
+        if (data.notParsed || true) {
             log('Not parsed. Will be parsed now...');
             initIE();
             if (PARSER_FULL_ALGORITHM(data.url, -1, -1, []) === 'ITEM_REMOVED') {
                 throw { message: 'ITEM_REMOVED' };
             }
             data = JSON.parse(readFile(`${currentProductFolder}\\productInfo.json`));
-        } else {
-            log('Parsed uploading...');
-            initIE();
-        }
+        } 
+		// else {
+            // log('Parsed uploading...');
+            // initIE();
+        // }
 
 
         let productName = processTitle(data.productName).substr(0, 100); //productSEOName;
